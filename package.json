@@ -1,0 +1,23 @@
+{
+  "name": "shopping-list-app",
+  "version": "1.0.0",
+  "description": "Make a shopping list ! Implemented using MEAN stack.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/noxyb0x/Shopping-List-app.git"
+  },
+  "author": "noxbox",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/noxyb0x/Shopping-List-app/issues"
+  },
+  "homepage": "https://github.com/noxyb0x/Shopping-List-app#readme",
+  "dependencies": {
+    "bootstrap": "^4.0.0",
+    "font-awesome": "^4.7.0"
+  }
+}

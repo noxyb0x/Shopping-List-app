@@ -1,0 +1,107 @@
+body{
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+} /* Iskomentarisi ovo u body-u prvo kad krenes uredjivat svaki segment zasebno !*/
+
+#wrapper{
+}
+
+header{
+    background-color: #408af8;
+    color: white;
+    border-radius: 5px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
+#caption{
+ 
+}
+/* SEARCH BAR */
+#searchCat{
+    background-color: #f6f9fc;   
+}
+#searchProducts{
+    margin: 10px;
+    padding: 5px;
+    box-shadow: 0 5px 20px rgba(50,50,93,.1),0 0.5px 5px rgba(0,0,0,.07);
+    font-family: "Lato";
+}
+#searchProducts:hover{
+    border: 2px solid rgb(184, 186, 198);
+    box-shadow: 0 6px 15px rgba(50,50,93,.1),0 0.8px 5px rgba(0,0,0,.07);
+    transform: translateY(1px);
+}
+#magnifier{
+    padding: 15px;
+}
+/* --------------------- */
+
+/*------- MAIN CONTENT -- PRODUCTS -----*/
+main{
+
+}
+#main-list{
+    list-style-type: none;
+    padding: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+.product{
+    border-top: 2px dotted;
+    padding: 10px;
+    background-color: #408af8;
+    color: white;
+}
+.product p{
+    margin: 0 auto;
+    max-width: 100%;
+}
+.category{
+    cursor: pointer;
+    max-width: 24px;
+    max-height: 24px;
+    display: inline-block;
+    float: left;
+    color: white;
+}
+.category:hover{
+    max-width: 40px;
+    max-height: 40px;
+}
+.removeProduct{
+    cursor: pointer;
+    float: right;
+    margin-top: 5px;
+}
+.removeProduct:hover{
+    transform: translateY(-1px);
+}
+/* --------------------- */
+
+
+/* ADD ELEMENT AREA */
+#addElement{
+    background-color: #f6f9fc;
+    padding: 10px;
+}
+#addElement #submitBtn{
+    display: block;
+    width: 100px;
+    margin: 0 auto;
+    padding: 3px;
+    margin-top: 10px;
+}
+
+/*-----------------*/
+#total{
+
+}
+
+footer{
+    
+}
+/* --------------------- */

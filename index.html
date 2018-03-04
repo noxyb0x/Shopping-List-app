@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Shopping Cart App</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css"> <!-- main css file -->
+    <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato|Roboto" rel="stylesheet"> 
+    <!-- boostrap files below -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+</head>
+<body>
+<div class = "container" id="wrapper">
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+            <a class="navbar-brand" href="#">Shopping Cart</a>
+        </nav>
+    </header>
+    <section id="searchCat">
+         <i class="fa fa-search" id="magnifier" aria-hidden="true"></i>
+         <input type="search" id="searchProducts" name="q" placeholder="Search products or categories.." size="30" >
+    </section>
+     <main>
+        <ul id="main-list">
+            <li class="product">
+                <p>
+                    <img src="img/hygiene1.png" class="category" /> Product 1 - Unit price
+                    <span class="qty">x25</span>
+                    <i class="fa fa-remove removeProduct" aria-hidden="true"></i>
+                </p>
+            </li>
+            <li class="product">
+                <p>
+                    <img src="img/food.png" class="category" />
+        
+                    <span class="qty">x25</span>
+                    <i class="fa fa-remove removeProduct" aria-hidden="true"></i>
+                </p>
+            </li>
+            <li class="product">
+                <p>
+                    <img src="img/drinks.png" class="category" /> Product 1 - Unit price
+                    <span class="qty">x25</span>
+                    <i class="fa fa-remove removeProduct" aria-hidden="true"></i>
+                </p>
+            </li>
+            <li class="product">
+                <p>
+                    <img src="img/other.png" class="category" /> Product 1 - Unit price
+                    <span class="qty">x25</span>
+                    <i class="fa fa-remove removeProduct" aria-hidden="true"></i>
+                </p>
+            </li>
+        </ul>
+    </main>
+    <section id="addElement">
+        <label for="pCategory">Category: </label>
+        <select name="categories" id="pCategory">
+            <option value="food">Food</option>
+            <option value="drinks">Drinks</option>
+            <option value="hygiene">Hygiene</option>
+            <option value="other">Other</option>
+        </select>
+        <label for="pName">Product: </label>
+        <input type="text" id="pName">
+        <label for="pQty">Quantity: </label>
+        <input type="number" name="productQuant" id="pQty">
+        <label for="pCost">Cost: </label>
+        <input type="number" name="productCost" id="pCost">
+        <input type="submit" value="Add product" id="submitBtn">
+    </section>
+    <section id="total"><p>Total : </p></section>
+    <footer>copyright@noxboxDev</footer>
+</div>
+</body>
+</html>
