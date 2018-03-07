@@ -52,6 +52,14 @@ router.put('/products/:id', function (req, res, next) {
     res.send("put handled");
 });
 //delete
-
+router.delete('/products/:id', function(req, res, next){
+    Product.findById(req.params.id)
+    .then(function(product, err){
+        if(err)
+            console.error(err);
+        product.remove();
+        res.send(product);
+    }).catch(next);
+});
 //export
 module.exports = router;
