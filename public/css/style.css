@@ -1,4 +1,5 @@
 body{
+    background:linear-gradient(#393939,#6e6e6e); 
     text-align: center;
     font-family: 'Roboto', sans-serif;
     text-rendering: optimizeLegibility;
@@ -7,26 +8,37 @@ body{
 } /* Iskomentarisi ovo u body-u prvo kad krenes uredjivat svaki segment zasebno !*/
 
 #wrapper{
+width: 80%;
+margin: 6% auto;
+
 }
 
 header{
-    background-color: #408af8;
-    color: white;
-    border-radius: 5px;
-    border-bottom-left-radius: 0px;
-    border-bottom-right-radius: 0px;
+    color:black;
+    background:linear-gradient(#6e6e6e, white);
+    border-radius: 10px 50px 10px 10px;
+    margin-bottom:3%;
 }
-
+a {
+    color:black;
+}
+#sredina{
+    width:97%;
+    margin: 0px auto;
+    background-color: grey;   
+}
 #caption{
  
 }
 /* SEARCH BAR */
 #searchCat{
-    background-color: #f6f9fc;   
+   
 }
 #searchProducts{
-    margin: 10px;
-    padding: 5px;
+    text-align:center;
+    width:40%;
+    margin: 2%;
+    padding:0.5%;
     box-shadow: 0 5px 20px rgba(50,50,93,.1),0 0.5px 5px rgba(0,0,0,.07);
     font-family: "Lato";
 }
@@ -44,17 +56,27 @@ header{
 main{
 
 }
-#main-list{
+ul {
+    padding: 0;
     list-style-type: none;
-    padding: 0px;
-    margin-top: 0px;
-    margin-bottom: 0px;
+}
+
+
+#main-list{
+
+
 }
 .product{
-    border-top: 2px dotted;
-    padding: 10px;
-    background-color: #408af8;
-    color: white;
+    list-style: none;
+    border-radius: 10px 10px 10px 10px;
+    padding:1%;
+    border-style:solid;
+    border-width:2px;
+    width:99%;
+    margin:0.5% auto;
+    background:linear-gradient(#ff5a09, #f3843e);
+   
+
 }
 .product p{
     margin: 0 auto;
@@ -65,7 +87,6 @@ main{
     max-width: 24px;
     max-height: 24px;
     display: inline-block;
-    float: left;
     color: white;
 }
 .category:hover{
@@ -82,19 +103,23 @@ main{
 }
 /* --------------------- */
 
-
 /* ADD ELEMENT AREA */
 #addElement{
-    background-color: #f6f9fc;
-    padding: 10px;
+    width:100%;
+    text-align:right;
+    margin-left:7%;
 }
 #addElement #submitBtn{
-    display: block;
-    width: 100px;
-    margin: 0 auto;
-    padding: 3px;
-    margin-top: 10px;
+    
 }
+input {
+        float: center;
+        margin:1%;
+        width: 100%; 
+        padding: .5em 1em; 
+        }
+    
+
 
 /*-----------------*/
 #total{
@@ -102,6 +127,7 @@ main{
 }
 
 footer{
-    
+    border-radius: 10px 10px 10px 50px;
+    background:linear-gradient(#6e6e6e, white );
 }
 /* --------------------- */

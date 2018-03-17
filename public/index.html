@@ -16,15 +16,29 @@
 <body>
 <div class = "container" id="wrapper">
     <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <nav class="navbar navbar-expand-lg">
             <a class="navbar-brand" href="#">Shopping Cart</a>
-        </nav>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Features</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Pricing</a>
+                </li>
+              </ul>
+            </div>
+          </nav>
     </header>
+    <div id="sredina">
     <section id="searchCat">
-         <i class="fa fa-search" id="magnifier" ></i>
          <input type="search" id="searchProducts" name="q" placeholder="Search products or categories.." size="30" >
+         <i class="fa fa-search" id="magnifier" ></i>
     </section>
-     <main>
+    <main>
         <ul id="main-list">
             <li class="product">
                 <p>
@@ -35,7 +49,7 @@
             </li>
             <li class="product">
                 <p>
-                    <img src="img/food.png" class="category" />
+                    <img src="img/food.png" class="category" /> Product 1 - Unit price
         
                     <span class="qty">x25</span>
                     <i class="fa fa-remove removeProduct" aria-hidden="true"></i>
@@ -56,27 +70,65 @@
                 </p>
             </li>
         </ul>
-    </main>
-    <section id="addElement">
-     <form id="addProducts">
-        <label for="pCategory">Category: </label>
-        <select name="categories" id="pCategory">
-            <option value="food">Food</option>
-            <option value="drinks">Drinks</option>
-            <option value="hygiene">Hygiene</option>
-            <option value="other">Other</option>
-        </select>
-        <label for="pName">Product: </label>
-        <input type="text" id="pName">
-        <label for="pQty">Quantity: </label>
-        <input type="number" name="productQuant" id="pQty">
-        <label for="pCost">Cost: </label>
-        <input type="number" name="productCost" id="pCost">
-        <input type="submit" value="Add product" id="submitBtn">
-     </form>
-    </section>
-    <section id="total"><p>Total : </p></section>
-    <footer>copyright@noxboxDev</footer>
+        </main>
+        <section id="addElement">
+
+                <form id="addProducts" form class="form-inline">  
+<div class="ofoono">
+                   <label for="pCategory">Category: </label>
+                   <select name="categories" id="pCategory" class="forma">
+                       <option value="food">Food</option>
+                       <option value="drinks">Drinks</option>
+                       <option value="hygiene">Hygiene</option>
+                       <option value="other">Other</option>
+                   </select>
+                   </div>
+<div class="ofoono2">
+                <label for="pName">Product: </label>
+                   <input type="text" id="pName">
+                </div>
+<div class="onoofo3">
+                   <label for="pQty">Quantity:</label>
+                   <input type="number" name="productQuant" id="pQty">
+                </div>
+<div class="onoofo4">
+                   <label for="pCost">Cost: </label>
+                   <input type="number" name="productCost" id="pCost">
+                </div>
+                   
+          </form>
+    
+   
+</section>
+<section id="total"><p>Total : </p>
+    <input type="submit" value="Add product" id="submitBtn"></section>
 </div>
+    <footer class="page-footer font-small blue pt-4 mt-4">
+      
+            <!--Footer Links-->
+            <div class="container-fluid text-center text-md-left">
+            <div class="footer-copyright py-3 text-center">
+                <div class="container-fluid">
+                    © 2015 Copyright: <a href="https://mdbootstrap.com/material-design-for-bootstrap/"> MDBootstrap.com </a>
+        
+                </div>
+            </div>
+            </div>
+
+
+            <!--/.Copyright-->
+        
+        </footer>
+
+</div>
+
+       
+
 </body>
 </html>
+
+
+
+
+
+
