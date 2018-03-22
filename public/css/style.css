@@ -1,44 +1,41 @@
 body{
-    background:linear-gradient(#393939,#6e6e6e); 
+    background:#8bb2c2; 
     text-align: center;
     font-family: 'Roboto', sans-serif;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-} /* Iskomentarisi ovo u body-u prvo kad krenes uredjivat svaki segment zasebno !*/
+} 
 
 #wrapper{
-width: 80%;
-margin: 6% auto;
-
-}
-
-header{
-    color:black;
-    background:linear-gradient(#6e6e6e, white);
-    border-radius: 10px 50px 10px 10px;
-    margin-bottom:3%;
-}
-a {
-    color:black;
-}
-#sredina{
-    width:97%;
+    max-width: 960px;
     margin: 0px auto;
-    background-color: grey;   
 }
-#caption{
- 
+
+.navbar-light{
+    background:ghostwhite;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 20px;
 }
+.nav-item{
+    text-align: left;
+}
+
+a{
+    color:black;
+}
+
+#sredina{
+    background-color: #42aea6;
+}
+
 /* SEARCH BAR */
-#searchCat{
-   
-}
+
 #searchProducts{
     text-align:center;
-    width:40%;
-    margin: 2%;
-    padding:0.5%;
+    max-width: 80%;
+    margin: 10px;
+    padding: 5px;
     box-shadow: 0 5px 20px rgba(50,50,93,.1),0 0.5px 5px rgba(0,0,0,.07);
     font-family: "Lato";
 }
@@ -49,45 +46,40 @@ a {
 }
 #magnifier{
     padding: 15px;
+    color:white;
 }
 /* --------------------- */
 
 /*------- MAIN CONTENT -- PRODUCTS -----*/
-main{
 
-}
 ul {
     padding: 0;
     list-style-type: none;
 }
-
-
-#main-list{
-
-
-}
 .product{
-    list-style: none;
-    border-radius: 10px 10px 10px 10px;
+    border-radius: 5px 5px 5px 5px;
     padding:1%;
     border-style:solid;
     border-width:2px;
     width:99%;
     margin:0.5% auto;
-    background:linear-gradient(#ff5a09, #f3843e);
-   
-
+    background: ghostwhite;
+    border-color: teal;
 }
 .product p{
     margin: 0 auto;
     max-width: 100%;
+    color:darkslategrey;
+}
+.product p:hover{
+    cursor: pointer;
 }
 .category{
     cursor: pointer;
     max-width: 24px;
     max-height: 24px;
-    display: inline-block;
     color: white;
+    float:left;
 }
 .category:hover{
     max-width: 40px;
@@ -96,38 +88,47 @@ ul {
 .removeProduct{
     cursor: pointer;
     float: right;
+    color:crimson;
     margin-top: 5px;
 }
 .removeProduct:hover{
-    transform: translateY(-1px);
+    transform: translateY(-3px);
 }
 /* --------------------- */
 
 /* ADD ELEMENT AREA */
-#addElement{
-    width:100%;
-    text-align:right;
-    margin-left:7%;
+#addElement .form-group{
+    text-align: left;
+}
+#addElement label{
+    color: darkslategray;
+}
+#addElement .card-body{
+    background-color: ghostwhite;
 }
 #addElement #submitBtn{
     
 }
-input {
-        float: center;
-        margin:1%;
-        width: 100%; 
-        padding: .5em 1em; 
-        }
-    
-
-
-/*-----------------*/
-#total{
-
+/* initially remove up and down arrows from number fields in form */
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+input[type="number"]:focus {
+    -moz-appearance: number-input;
 }
 
+/*-----------------*/
+/* TOTAL AREA */
+#total{
+}
+/*-----------------*/
+
+/* FOOTER */
+
+
 footer{
-    border-radius: 10px 10px 10px 50px;
-    background:linear-gradient(#6e6e6e, white );
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 50px;
+    background:ghostwhite;
 }
 /* --------------------- */

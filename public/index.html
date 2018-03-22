@@ -1,134 +1,138 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Shopping Cart App</title>
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
-    <link rel="stylesheet" href="css/style.css"> <!-- main css file -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- main css file -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Lato|Roboto" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Lato|Roboto" rel="stylesheet">
     <!-- boostrap files below -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
     <script src="../bootstrap/js/bootstrap.bundle.js"></script>
 </head>
+
 <body>
-<div class = "container" id="wrapper">
-    <header>
-        <nav class="navbar navbar-expand-lg">
-            <a class="navbar-brand" href="#">Shopping Cart</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-              <ul class="navbar-nav">
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Features</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Pricing</a>
-                </li>
-              </ul>
-            </div>
-          </nav>
-    </header>
-    <div id="sredina">
-    <section id="searchCat">
-         <input type="search" id="searchProducts" name="q" placeholder="Search products or categories.." size="30" >
-         <i class="fa fa-search" id="magnifier" ></i>
-    </section>
-    <main>
-        <ul id="main-list">
-            <li class="product">
-                <p>
-                    <img src="img/hygiene1.png" class="category" /> Product 1 - Unit price
-                    <span class="qty">x25</span>
-                    <i class="fa fa-remove removeProduct" aria-hidden="true"></i>
-                </p>
-            </li>
-            <li class="product">
-                <p>
-                    <img src="img/food.png" class="category" /> Product 1 - Unit price
-        
-                    <span class="qty">x25</span>
-                    <i class="fa fa-remove removeProduct" aria-hidden="true"></i>
-                </p>
-            </li>
-            <li class="product">
-                <p>
-                    <img src="img/drinks.png" class="category" /> Product 1 - Unit price
-                    <span class="qty">x25</span>
-                    <i class="fa fa-remove removeProduct" aria-hidden="true"></i>
-                </p>
-            </li>
-            <li class="product">
-                <p>
-                    <img src="img/other.png" class="category" /> Product 1 - Unit price
-                    <span class="qty">x25</span>
-                    <i class="fa fa-remove removeProduct" aria-hidden="true"></i>
-                </p>
-            </li>
-        </ul>
-        </main>
-        <section id="addElement">
+    <div class="container" id="wrapper">
+        <header>
+            <nav class="navbar navbar-expand-lg navbar-light mt-3">
+                <a class="navbar-brand" href="#" style="color:darkslategray;">Shopping Cart</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-                <form id="addProducts" form class="form-inline">  
-<div class="ofoono">
-                   <label for="pCategory">Category: </label>
-                   <select name="categories" id="pCategory" class="forma">
-                       <option value="food">Food</option>
-                       <option value="drinks">Drinks</option>
-                       <option value="hygiene">Hygiene</option>
-                       <option value="other">Other</option>
-                   </select>
-                   </div>
-<div class="ofoono2">
-                <label for="pName">Product: </label>
-                   <input type="text" id="pName">
+                <div class="collapse navbar-collapse" id="navbarToggler">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#">Home
+                                <span class="sr-only">(current)</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">About</a>
+                        </li>
+                    </ul>
                 </div>
-<div class="onoofo3">
-                   <label for="pQty">Quantity:</label>
-                   <input type="number" name="productQuant" id="pQty">
+            </nav>
+        </header>
+        <div id="sredina">
+            <section id="searchCat">
+                <div class="form-group mx-sm-3 mb-2">
+                    <input type="search" class="form-control w-50 d-inline-block mt-3" name="q" placeholder="Search products or categories.."
+                        size="30">
+                    <i class="fa fa-search" id="magnifier"></i>
                 </div>
-<div class="onoofo4">
-                   <label for="pCost">Cost: </label>
-                   <input type="number" name="productCost" id="pCost">
+            </section>
+            <main>
+                <ul id="main-list">
+                    <li class="product">
+                        <p>
+                            <img src="img/hygiene1.png" class="category" /> Product 1 - Unit price
+                            <span class="qty">x25</span>
+                            <i class="fa fa-remove removeProduct" aria-hidden="true"></i>
+                        </p>
+                    </li>
+                    <li class="product">
+                        <p>
+                            <img src="img/food.png" class="category" /> Product 1 - Unit price
+
+                            <span class="qty">x25</span>
+                            <i class="fa fa-remove removeProduct" aria-hidden="true"></i>
+                        </p>
+                    </li>
+                    <li class="product">
+                        <p>
+                            <img src="img/drinks.png" class="category" /> Product 1 - Unit price
+                            <span class="qty">x25</span>
+                            <i class="fa fa-remove removeProduct" aria-hidden="true"></i>
+                        </p>
+                    </li>
+                    <li class="product">
+                        <p>
+                            <img src="img/other.png" class="category" /> Product 1 - Unit price
+                            <span class="qty">x25</span>
+                            <i class="fa fa-remove removeProduct" aria-hidden="true"></i>
+                        </p>
+                    </li>
+                </ul>
+            </main>
+            <section id="addElement">
+                <div class="card">
+                    <div class="card-body">
+                        <form id="addProducts">
+                            <div class="form-row mx-sm-3 mb-2">
+                                <div class="form-group col-sm-9 offset-sm-1 col-12">
+                                    <label for="pName">Product</label>
+                                    <input type="text" id="pName" class="form-control" placeholder="labele nemoj zaboravit napravit resp. umanji kad je sm screen">
+                                </div>
+                            </div>
+                            <div class="form-row mx-sm-3 mb-2">
+                                <div class="form-group col-sm-5 offset-sm-1 col-6">
+                                    <label for="pCategory">Category</label>
+                                    <select name="categories" class="form-control" id="pCategory">
+                                        <option value="food">Food</option>
+                                        <option value="drinks">Drinks</option>
+                                        <option value="hygiene">Hygiene</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-sm-2 col-3">
+                                    <label for="pQty">Quantity</label>
+                                    <input type="number" name="productQuant" id="pQty" class="form-control" value="1" min = 1>
+                                </div>
+                                <div class="form-group col-sm-2 col-3">
+                                    <label for="pCost">Cost</label>
+                                    <input type="number" name="productCost" id="pCost" class="form-control" value="1" min = 0.1>
+                                </div>
+                            </div>
+                            <input type="submit" value="Add product" id="submitBtn" class="btn btn-primary mx-auto mt-2">
+                        </form>
+                    </div>
                 </div>
-                   
-          </form>
-    
-   
-</section>
-<section id="total"><p>Total : </p>
-    <input type="submit" value="Add product" id="submitBtn"></section>
-</div>
-    <footer class="page-footer font-small blue pt-4 mt-4">
-      
-            <!--Footer Links-->
+            </section>
+            <section id="total">
+            
+            </section>
+        </div>
+        <!-- sredina -->
+        <footer class="page-footer font-small blue pt-4">
             <div class="container-fluid text-center text-md-left">
-            <div class="footer-copyright py-3 text-center">
-                <div class="container-fluid">
-                    © 2015 Copyright: <a href="https://mdbootstrap.com/material-design-for-bootstrap/"> MDBootstrap.com </a>
-        
+                <div class="footer-copyright py-3 text-center">
+                    <div class="container-fluid">
+                        © 2018 
+                        <a href="https://github.com/noxyb0x">nermin</a> & <a href="https://github.com/nadirbajraktarevic">nadirbajraktarevic</a>
+                    </div>
                 </div>
             </div>
-            </div>
-
-
-            <!--/.Copyright-->
-        
         </footer>
-
-</div>
-
-       
-
+    </div>
+    <!-- container -->
 </body>
+
 </html>
-
-
-
-
-
-
