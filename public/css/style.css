@@ -25,7 +25,7 @@ a{
     color:black;
 }
 
-#sredina{
+#mid{
     background-color: #42aea6;
 }
 
@@ -107,7 +107,12 @@ ul {
     background-color: ghostwhite;
 }
 #addElement #submitBtn{
-    
+    background-color: #42aea6;
+    border-color: beige;
+}
+#addElement #submitBtn:hover{
+    background-color:teal;
+    border-color: beige;
 }
 /* initially remove up and down arrows from number fields in form */
 input[type="number"] {
@@ -119,7 +124,11 @@ input[type="number"]:focus {
 
 /*-----------------*/
 /* TOTAL AREA */
-#total{
+#total .card{
+    background-color: #42aea6;
+}
+#total p2{
+    color: white;        
 }
 /*-----------------*/
 
