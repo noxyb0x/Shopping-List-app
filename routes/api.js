@@ -23,11 +23,11 @@ router.post('/products', function (req, res, next) {
                 product.quantity += req.body.quantity;
                 product.cost = req.body.cost;
                 product.save();
-                console.log(req.body.name + " updated!");
+                console.log((new Date()).toTimeString() + ":: " + req.body.name + " updated!");
             }
             else {
                 Product.create(req.body).then(function (product) {
-                    console.log("creating new product .." + product.name);
+                    console.log((new Date()).toTimeString() + ":: creating new product .." + product.name);
                 }).catch(next);
             }
         }).catch(next)
@@ -45,21 +45,21 @@ router.put('/products/:id', function (req, res, next) {
             product.quantity = req.body.quantity;
             product.name = req.body.name;
             product.save();
-            console.log(product);
+            console.log((new Date()).toTimeString() + ":: " + product);
             updated = true;
         }).catch(next);
 
     res.send("put handled");
 });
 //delete
-router.delete('/products/:id', function(req, res, next){
+router.delete('/products/:id', function (req, res, next) {
     Product.findById(req.params.id)
-    .then(function(product, err){
-        if(err)
-            console.error(err);
-        product.remove();
-        res.send(product);
-    }).catch(next);
+        .then(function (product, err) {
+            if (err)
+                console.error(err);
+            product.remove();
+            res.send(product);
+        }).catch(next);
 });
 //export
 module.exports = router;

@@ -10,7 +10,8 @@ mongoose.connect('mongodb://localhost/shoppingCartListDB');
 
 //serve static files
 app.use(express.static('public'));
-app.use('/bootstrap', express.static(__dirname + '/node_modules/bootstrap/dist/'));
+app.use('/scripts', express.static(__dirname + '/node_modules/'));
+app.use('/controllers', express.static(__dirname + '/controllers'));
 
 //middleware setup below
 
