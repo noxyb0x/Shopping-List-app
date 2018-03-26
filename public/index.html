@@ -46,7 +46,7 @@
                 <div class="form-row">
                     <div class="col-sm-8 col-8 offset-2">
                         <div class="input-group mx-sm-3 my-4">
-                            <input type="search" class="form-control" name="q" placeholder="Search products or categories.." size="30">
+                            <input type="search" ng-model="searchBox" class="form-control" name="q" placeholder="Search products or categories.." size="30">
                             <div class="input-group-append">
                                 <i class="input-group-text fa fa-search" id="magnifier"></i>
                             </div>
@@ -56,11 +56,11 @@
             </section>
             <main>
                 <ul id="main-list" >
-                    <li class="product" ng-repeat="product in pList.products">
-                        <p>
+                    <li class="product" ng-repeat="product in products | filter:searchBox">
+                        <p ng-class="{strike: done}" ng-model="done" ng-click="done = !done">
                             <img ng-src="img/{{product.category}}.png" class="category" />{{product.name}} - {{product.cost | currency}}
                             <span class="qty">x{{product.quantity}}</span>
-                            <i class="fa fa-remove removeProduct" aria-hidden="true"></i>
+                            <i class="fa fa-remove removeProduct" aria-hidden="true" ng-click="deleteProduct(product._id)"></i>
                         </p>
                     </li>
                 </ul>
@@ -68,7 +68,7 @@
             <section id="addElement">
                 <div class="card">
                     <div class="card-body">
-                        <form id="addProducts" ng-submit="pList.addProduct()">
+                        <form id="addProducts" ng-submit="addProduct()">
                             <div class="form-row mx-sm-3 mb-2">
                                 <div class="form-group col-sm-9 offset-sm-1 col-12">
                                     <label class="col-form-label-sm col-form-label" for="pName">Product</label>
@@ -91,7 +91,7 @@
                                 </div>
                                 <div class="form-group col-sm-2 col-3">
                                     <label class="col-form-label-sm col-form-label" for="pCost">Cost</label>
-                                    <input type="number" name="productCost" id="pCost" class="form-control" value="1" min=0 ng-model="formData.cost">
+                                    <input type="number" name="productCost" id="pCost" class="form-control" value="1" min=0 step="0.01" ng-model="formData.cost">
                                 </div>
                             </div>
                             <input type="submit" value="Add product" id="submitBtn" class="btn btn-primary mx-auto mt-2">
@@ -100,9 +100,9 @@
                 </div>
             </section>
             <section id="total">
-                <div ng-hide ="pList.products.length === 0" class="card">
+                <div ng-hide ="products.length === 0" class="card">
                     <div class="card-body">
-                        <p2 ng-model="total">Total: {{pList.total | currency}} </p2>
+                        <p2 ng-model="total">Total: {{total | currency}} </p2>
                     </div>
                 </div>
             </section>

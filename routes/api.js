@@ -45,7 +45,7 @@ router.put('/products/:id', function (req, res, next) {
             product.quantity = req.body.quantity;
             product.name = req.body.name;
             product.save();
-            console.log((new Date()).toTimeString() + ":: " + product);
+            console.log((new Date()).toTimeString() + ":: updating " + product);
             updated = true;
         }).catch(next);
 
@@ -53,13 +53,10 @@ router.put('/products/:id', function (req, res, next) {
 });
 //delete
 router.delete('/products/:id', function (req, res, next) {
-    Product.findById(req.params.id)
-        .then(function (product, err) {
-            if (err)
-                console.error(err);
-            product.remove();
-            res.send(product);
-        }).catch(next);
+    Product.remove({_id: req.params.id}).then(function(){
+        console.log((new Date()).toTimeString() + ":: removing " + req.params.id);
+    }).catch(next);
+    res.send('delete done');
 });
 //export
 module.exports = router;

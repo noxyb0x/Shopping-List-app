@@ -1,40 +1,52 @@
 var app = angular.module('ShoppingListModule', []);
 
 app.controller('ProductListController', ['$http', '$scope', function ($http, $scope) {
-    list = this;
-    list.products = [];
-    list.total = 0;
-    //global calculate total cost ammount function
-    list.calcTotal = function (product) {
-        list.total += product.quantity * product.cost;
+    $scope.products = [];
+    $scope.total = 0;
+    //calculate total cost ammount function
+    $scope.calcTotal = function (products) {
+        $scope.total = 0;
+        for (let product of products)
+            $scope.total += product.quantity * product.cost;
     }
-    //get all products from API and save current state
-    var getAllprods = () => {
+    //get all products from API and save current state (use factories for prod. apps!)
+    $scope.getAllprods = function () {
         $http.get('/api/products').then(
             (res) => {
-                list.products = res.data;
-                for (i = 0; i < list.products.length; i++)
-                    list.calcTotal(list.products[i]);
+                $scope.products = res.data;
+                $scope.calcTotal($scope.products);
                 console.log(res.data);
             },
             (res) => {
                 console.log(res.status + " " + res.statusText);
             });
     };
-    getAllprods();
+    $scope.getAllprods();
 
     //make an api call to add a product into the database 
     $scope.formData = {};
-    list.addProduct = function () {
+    $scope.addProduct = function () {
         $http.post('/api/products', $scope.formData).then(
             (res) => {
-                list.products.push($scope.formData); //fully utilize 2way data-binding
-                list.calcTotal($scope.formData);
+                console.log('Success ' + res.status);
+                $scope.getAllprods();
                 $scope.formData = {};
-                console.log("success adding");
             },
             (res) => {
                 console.log(res.status + " " + res.statusText);
+            }
+        )
+    };
+
+    //make an api call to delete a product from the database
+    $scope.deleteProduct = function (id) {
+        $http.delete('/api/products/' + id).then(
+            (res) => {
+                console.log('Success ' + res.status);
+                $scope.getAllprods();
+            },
+            (res) => {
+                console.log('Error ' + res.status);
             }
         )
     };

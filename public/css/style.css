@@ -94,6 +94,9 @@ ul {
 .removeProduct:hover{
     transform: translateY(-3px);
 }
+.strike{
+    text-decoration: line-through;
+}
 /* --------------------- */
 
 /* ADD ELEMENT AREA */
