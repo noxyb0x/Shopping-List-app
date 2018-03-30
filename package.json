@@ -19,6 +19,7 @@
   "homepage": "https://github.com/noxyb0x/Shopping-List-app#readme",
   "dependencies": {
     "angular": "^1.6.9",
+    "angular-animate": "^1.6.9",
     "body-parser": "^1.18.2",
     "bootstrap": "^4.0.0",
     "express": "^4.16.2",

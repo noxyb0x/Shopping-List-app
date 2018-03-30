@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html ng-app = "ShoppingListModule" lang="en">
+<html ng-app="ShoppingListModule" lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
@@ -16,8 +17,10 @@
     <script src="../scripts/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <!-- angularjs files below -->
     <script src="../scripts/angular/angular.min.js"></script>
+    <script src="../scripts/angular-animate/angular-animate.min.js"></script>
     <script src="../controllers/products.js"></script>
 </head>
+
 <body ng-controller="ProductListController as pList">
     <div class="container" id="wrapper">
         <header>
@@ -55,59 +58,57 @@
                 </div>
             </section>
             <main>
-                <ul id="main-list" >
+                <ul id="main-list">
                     <li class="product" ng-repeat="product in products | filter:searchBox">
-                        <p ng-class="{strike: done}" ng-model="done" ng-click="done = !done">
-                            <img ng-src="img/{{product.category}}.png" class="category" />{{product.name}} - {{product.cost | currency}}
-                            <span class="qty">x{{product.quantity}}</span>
-                            <i class="fa fa-remove removeProduct" aria-hidden="true" ng-click="deleteProduct(product._id)"></i>
-                        </p>
+                        <img ng-src="img/{{product.category}}.png" class="category" ng-click="appendToSearchBox(product.category)" />
+                        <p ng-class="{strike: done}" ng-model="done" ng-click="done = !done">{{product.name}} - {{product.cost | currency}} x{{product.quantity}}</p>
+                        <i class="fa fa-remove removeProduct" aria-hidden="true" ng-click="deleteProduct(product._id, product.name, product.category)"></i>
                     </li>
                 </ul>
             </main>
             <section id="addElement">
                 <div class="card">
                     <div class="card-body">
-                        <form id="addProducts" ng-submit="addProduct()">
+                        <form name="productsForm" id="addProducts" novalidate>
                             <div class="form-row mx-sm-3 mb-2">
                                 <div class="form-group col-sm-9 offset-sm-1 col-12">
                                     <label class="col-form-label-sm col-form-label" for="pName">Product</label>
-                                    <input type="text" id="pName" class="form-control" placeholder="Enter a product name ie. Bread" ng-model="formData.name">
+                                    <input type="text" ng-required="true" id="pName" class="form-control" placeholder="Enter a product name ie. Bread" ng-model="formData.name">
                                 </div>
                             </div>
                             <div class="form-row mx-sm-3 mb-2">
                                 <div class="form-group col-sm-5 offset-sm-1 col-6">
                                     <label class="col-form-label-sm col-form-label" for="pCategory">Category</label>
-                                    <select name="categories" class="form-control" id="pCategory" ng-model="formData.category">
+                                    <select name="categories" ng-required="true" class="form-control" id="pCategory" ng-model="formData.category">
                                         <option value="food">Food</option>
                                         <option value="drinks">Drinks</option>
                                         <option value="hygiene">Hygiene</option>
-                                        <option value="other">Other</option>
+                                        <option value="other" selected>Other</option>
                                     </select>
                                 </div>
                                 <div class="form-group col-sm-2 col-3">
                                     <label class="col-form-label-sm col-form-label" for="pQty">Quantity</label>
-                                    <input type="number" name="productQuant" id="pQty" class="form-control" value="1" min=1 ng-model="formData.quantity">
+                                    <input type="number" name="productQuant" ng-required="true" id="pQty" class="form-control" min=1 ng-model="formData.quantity">
                                 </div>
                                 <div class="form-group col-sm-2 col-3">
                                     <label class="col-form-label-sm col-form-label" for="pCost">Cost</label>
-                                    <input type="number" name="productCost" id="pCost" class="form-control" value="1" min=0 step="0.01" ng-model="formData.cost">
+                                    <input type="number" name="productCost" ng-required="true" id="pCost" class="form-control" min=0 step="0.01" ng-model="formData.cost">
                                 </div>
                             </div>
-                            <input type="submit" value="Add product" id="submitBtn" class="btn btn-primary mx-auto mt-2">
+                            <input type="submit" value="Add product" id="submitBtn" class="btn btn-primary mx-auto mt-2" ng-disabled="productsForm.$invalid"
+                                ng-click="addProduct(productsForm)">
                         </form>
                     </div>
                 </div>
             </section>
             <section id="total">
-                <div ng-hide ="products.length === 0" class="card">
+                <div class="animate-hide" ng-show="total !== 0" class="card">
                     <div class="card-body">
                         <p2 ng-model="total">Total: {{total | currency}} </p2>
                     </div>
                 </div>
             </section>
         </div>
-        <!-- mid -->
         <footer class="page-footer font-small blue pt-4">
             <div class="container-fluid text-center text-md-left">
                 <div class="footer-copyright py-3 text-center">
@@ -120,6 +121,6 @@
             </div>
         </footer>
     </div>
-    <!-- container -->
 </body>
+
 </html>

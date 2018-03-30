@@ -11,7 +11,6 @@ body{
     max-width: 960px;
     margin: 0px auto;
 }
-
 .navbar-light{
     background:ghostwhite;
     border-top-left-radius: 10px;
@@ -30,20 +29,6 @@ a{
 }
 
 /* SEARCH BAR */
-
-#searchProducts{
-    text-align:center;
-    max-width: 80%;
-    margin: 10px;
-    padding: 5px;
-    box-shadow: 0 5px 20px rgba(50,50,93,.1),0 0.5px 5px rgba(0,0,0,.07);
-    font-family: "Lato";
-}
-#searchProducts:hover{
-    border: 2px solid rgb(184, 186, 198);
-    box-shadow: 0 6px 15px rgba(50,50,93,.1),0 0.8px 5px rgba(0,0,0,.07);
-    transform: translateY(1px);
-}
 #magnifier{
     padding: 10px;
     color:darkslategray;
@@ -51,7 +36,9 @@ a{
 /* --------------------- */
 
 /*------- MAIN CONTENT -- PRODUCTS -----*/
-
+main{
+    overflow: hidden;
+}
 ul {
     padding: 0;
     list-style-type: none;
@@ -89,7 +76,7 @@ ul {
     cursor: pointer;
     float: right;
     color:crimson;
-    margin-top: 5px;
+    margin-top: -20px;
 }
 .removeProduct:hover{
     transform: translateY(-3px);
@@ -97,6 +84,31 @@ ul {
 .strike{
     text-decoration: line-through;
 }
+/* --------------------- */
+/* ANIMATIONS */
+li.ng-enter {
+    transition:0.2s linear all;
+    opacity:0;
+    transform: translateY(30px);
+}
+li.ng-enter.ng-enter-active {
+    opacity:1;
+    transform: translateY(0);
+}
+li.ng-enter-stagger{
+    transition-delay: 0.2s;
+    transition-duration: 0;
+}
+li.ng-leave {
+    transition:0.2s linear all;
+    opacity:1;
+    transform: translateX(0);
+}
+li.ng-leave.ng-leave-active {
+    opacity:0;
+    transform: translateX(-100%);
+}
+
 /* --------------------- */
 
 /* ADD ELEMENT AREA */
@@ -117,6 +129,16 @@ ul {
     background-color:teal;
     border-color: beige;
 }
+input.ng-invalid.ng-touched, select.ng-invalid.ng-touched{
+    border: 1px solid red;
+}
+input.ng-invalid.ng-touched:focus, select.ng-invalid.ng-touched:focus{
+    box-shadow: 0 0 0 0;
+}
+input[disabled]{
+    cursor: not-allowed;
+}
+
 /* initially remove up and down arrows from number fields in form */
 input[type="number"] {
     -moz-appearance: textfield;
@@ -124,7 +146,6 @@ input[type="number"] {
 input[type="number"]:focus {
     -moz-appearance: number-input;
 }
-
 /*-----------------*/
 /* TOTAL AREA */
 #total .card{
@@ -133,14 +154,19 @@ input[type="number"]:focus {
 #total p2{
     color: white;        
 }
+
+.animate-hide {
+    transition: all linear 0.5s;
+}
+.animate-hide.ng-hide.ng-hide-active{
+    opacity: 0;
+}
 /*-----------------*/
 
 /* FOOTER */
-
-
 footer{
     border-bottom-right-radius: 10px;
-    border-bottom-left-radius: 50px;
+    border-bottom-left-radius: 20px;
     background:ghostwhite;
 }
 /* --------------------- */
