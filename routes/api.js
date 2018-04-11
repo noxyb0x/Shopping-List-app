@@ -13,25 +13,9 @@ router.get('/products', function (req, res, next) {
 
 //add a product to db
 router.post('/products', function (req, res, next) {
-    //if same found, adjust quantity and/or price (could be upgraded with regex/pattern matching)
-    Product.findOne({ 'name': req.body.name })
-        .then(function (product, err) {
-            if (err)
-                return console.error(err); //improve to handle this error
-
-            if (product != null) {
-                product.quantity += req.body.quantity;
-                product.cost = req.body.cost;
-                product.save();
-                console.log((new Date()).toTimeString() + ":: " + req.body.name + " updated!");
-            }
-            else {
-                Product.create(req.body).then(function (product) {
-                    console.log((new Date()).toTimeString() + ":: creating new product .." + product.name);
-                }).catch(next);
-            }
-        }).catch(next)
-
+    Product.create(req.body).then(function (product) {
+        console.log((new Date()).toTimeString() + ":: creating new product .." + product.name);
+    }).catch(next);
     res.send("Post done");
 });
 
@@ -45,7 +29,7 @@ router.put('/products/:id', function (req, res, next) {
             product.quantity = req.body.quantity;
             product.name = req.body.name;
             product.save();
-            console.log((new Date()).toTimeString() + ":: updating " + product);
+            console.log((new Date()).toTimeString() + ":: updating " + product.name);
             updated = true;
         }).catch(next);
 
@@ -53,7 +37,7 @@ router.put('/products/:id', function (req, res, next) {
 });
 //delete
 router.delete('/products/:id', function (req, res, next) {
-    Product.remove({_id: req.params.id}).then(function(){
+    Product.remove({ _id: req.params.id }).then(function () {
         console.log((new Date()).toTimeString() + ":: removing " + req.params.id);
     }).catch(next);
     res.send('delete done');

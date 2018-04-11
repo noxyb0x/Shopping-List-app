@@ -23,24 +23,37 @@ var app = angular.module('ShoppingListModule', ['ngAnimate'])
                 if (prod.name === newP.name && prod.category === newP.category) {
                     prod.quantity += newP.quantity;
                     prod.cost = newP.cost;
-                    return true;
+                    return prod._id;
                 }
-            return false;
+            return -1;
         }
         //make an api call to add a product into the database 
         $scope.formData = {};
         $scope.addProduct = function (form) {
-            $http.post('/api/products', $scope.formData).then(
-                (res) => {
-                    if (!findSameAndUpdate($scope.formData))
+            let productID = findSameAndUpdate($scope.formData);
+            if (productID != -1) {
+                $http.put('/api/products/' + productID, $scope.formData).then(
+                    (res) => {
+                        $scope.calcTotal($scope.products);
+                        $scope.formData = {};
+                    },
+                    (err) => {
+                        console.log(err.status + " " + err.statusText);
+                    }
+                )
+            }
+            else {
+                $http.post('/api/products', $scope.formData).then(
+                    (res) => {
                         $scope.products.push($scope.formData);
-                    $scope.calcTotal($scope.products);
-                    $scope.formData = {};
-                },
-                (err) => {
-                    console.log(err.status + " " + err.statusText);
-                }
-            )
+                        $scope.calcTotal($scope.products);
+                        $scope.formData = {};
+                    },
+                    (err) => {
+                        console.log(err.status + " " + err.statusText);
+                    }
+                )
+            }
             //form validation cleanup
             form.$setPristine();
             form.$setUntouched();
