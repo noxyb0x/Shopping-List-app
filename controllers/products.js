@@ -21,7 +21,7 @@ var app = angular.module('ShoppingListModule', ['ngAnimate'])
         var findSameAndUpdate = function (newP) {
             for (let prod of $scope.products)
                 if (prod.name === newP.name && prod.category === newP.category) {
-                    prod.quantity += newP.quantity;
+                    prod.quantity = newP.quantity;
                     prod.cost = newP.cost;
                     return prod._id;
                 }
